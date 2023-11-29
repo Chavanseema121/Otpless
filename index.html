@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <form>
+      <div class="welcome">
+        <p>Welcome to Otpless</p>
+        <p id="otpless">Otpless login</p>
+      </div>
+      <label for="Username">User Name</label><br />
+      <input type="text" id="firstname" placeholder="first name here" /><br />
+
+      <label for="email">Email</label><br />
+      <input type="email" id="email" placeholder="email here" /><br />
+      <label for="password">Password</label><br />
+      <input type="password" id="password" placeholder="password here" /><br />
+
+      <!-- button tag -->
+      <!-- <input type="submit" class="btn-style"> -->
+      <button class="btn-style">Submit</button>
+     
+    </form>
+    <div id="otpless-login-page"></div>
+    <script
+      type="text/javascript"
+      src="https://otpless.com/auth.js"
+      cid="DFM6848NT0SRPJBZBTYM8PBQFM8HDJU0"
+    ></script>
+    <script type="text/javascript">
+      function otpless(otplessUser) {
+        // console.log(JSON.stringify(otplessUser));
+        var username = otplessUser.waName;
+        var usernumber = otplessUser.waNumber;
+        // Signup/signin the user and redirect to next page
+        document.getElementById("otpless-login-page").style.display = "none";
+        document.getElementById("otpless").innerHTML = `
+                    <h2> Hi ${username} Welcome ! </h2>`;
+      }
+    </script>
+  </body>
+</html>
